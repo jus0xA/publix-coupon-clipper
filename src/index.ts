@@ -243,13 +243,13 @@ async function processCoupons(page: Page): Promise<number> {
 
   let buttonHandles: ElementHandle[];
   {
-    const loadMoreButton = await page.waitForXPath(
-      "//div[contains(@class, 'card-loader')]//button[contains(., 'Load More')]",
+    const loadMoreButton = await page.waitForSelector(
+      "xpath///div[contains(@class, 'card-loader')]//button[contains(., 'Load More')]",
       { visible: true },
     );
 
     if (loadMoreButton === null) {
-      throw new Error("Handle for “Load More” button element is null");
+      throw new Error("Handle for 'Load More' button element is null");
     }
 
     // Keep clicking the “Load More” button until it is removed or the number of
